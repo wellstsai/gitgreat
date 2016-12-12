@@ -47,6 +47,13 @@ var ItemListTable = sequelize.define('itemlists', {
   },
 });
 
+var PhotosTable = sequelize.define('photos', {
+  url: {
+    type: Sequelize.STRING
+  }
+});
+
+
 ItemListTable.belongsTo(EventTable);
 ReminderTable.belongsTo(EventTable);
 
@@ -60,5 +67,6 @@ sequelize
   });
 
 module.exports.EventTable = EventTable;
-module.exports.ItemListTable = ItemListTable;    
+module.exports.ItemListTable = ItemListTable;
 module.exports.ReminderTable = ReminderTable;
+module.exports.PhotosTable = PhotosTable;

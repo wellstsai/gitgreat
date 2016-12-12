@@ -4,11 +4,11 @@ USE gitgreat;
 
 -- ---
 -- Table 'reminders'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS `reminders`;
-    
+
 CREATE TABLE `reminders` (
   `id` INTEGER AUTO_INCREMENT,
   `phoneNumber` VARCHAR(15),
@@ -22,11 +22,11 @@ CREATE TABLE `reminders` (
 
 -- ---
 -- Table 'events'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS `events`;
-    
+
 CREATE TABLE `events` (
   `id` INTEGER AUTO_INCREMENT,
   `name` VARCHAR(60),
@@ -39,11 +39,11 @@ CREATE TABLE `events` (
 
 -- ---
 -- Table 'itemlists'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS `itemlists`;
-    
+
 CREATE TABLE `itemlists` (
   `id` INTEGER AUTO_INCREMENT,
   `item` VARCHAR(60),
@@ -56,11 +56,27 @@ CREATE TABLE `itemlists` (
 );
 
 -- ---
--- Foreign Keys 
+-- Table 'Photos'
+--
+-- ---
+
+DROP TABLE IF EXISTS `photos`;
+
+CREATE TABLE `photos` (
+  `id` INTEGER AUTO_INCREMENT,
+  `url` VARCHAR(250),
+  `event` INTEGER,
+  `createdAt` VARCHAR(60),
+  `updatedAt` VARCHAR(60),
+  PRIMARY KEY (`id`)
+);
+-- ---
+-- Foreign Keys
 -- ---
 
 ALTER TABLE `itemlists` ADD FOREIGN KEY (eventId) REFERENCES `events` (`id`);
 ALTER TABLE `reminders` ADD FOREIGN KEY (eventId) REFERENCES `events` (`id`);
+ALTER TABLE `photos` ADD FOREIGN KEY (event) REFERENCES `events` (`id`);
 
 -- ---
 -- Table Properties
